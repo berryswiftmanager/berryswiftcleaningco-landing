@@ -13,6 +13,7 @@
 - Start the dev server: `node serve.mjs` (serves the project root at `http://localhost:3000`)
 - `serve.mjs` lives in the project root. Start it in the background before taking any screenshots.
 - If the server is already running, do not start a second instance.
+- Ultimately whats going to happen is we are syncing all of the changes to Github and Github will automatically push those changes to Vercel. But when I'm making changes with you here we will always test on `http://localhost:3000` until I tell you explicitly to push that to Github or commit those changes to Github
 
 ## Screenshot Workflow
 - Puppeteer is installed at `C:/Users/nateh/AppData/Local/Temp/puppeteer-test/`. Chrome cache is at `C:/Users/nateh/.cache/puppeteer/`.

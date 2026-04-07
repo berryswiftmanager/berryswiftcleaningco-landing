@@ -191,8 +191,16 @@
       e.preventDefault();
       const selected = document.querySelector('input[name="upgrade"]:checked');
       if (!selected) return;
-      // Next step logic goes here
-      alert(selected.value === 'yes' ? 'Swift Bundle added! Redirecting...' : 'No problem! Redirecting...');
+
+      // Disable button to prevent double-submit
+      var btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      // TODO: Send upgrade choice to webhook (Option 2 — wired up next)
+
+      // Redirect to confirmation page
+      window.location.href = '/booking-confirmed.html';
     });
   </script>
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Confirmed — Berry Swift Cleaning</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#0033a1',
+            'brand-dark': '#002270',
+            'brand-light': '#f5f7ff',
+            'brand-pale': '#eef1ff',
+            foreground: '#0f0f0f',
+            muted: '#6b7280',
+            border: '#e5e7eb',
+            success: '#00ca72',
+            surface: '#f9fafb',
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', sans-serif; color: #0f0f0f; background: #fff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.5; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+    @keyframes scaleIn { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-scale { animation: scaleIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .animate-fade { animation: fadeInUp 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .delay-1 { animation-delay: 0.2s; opacity: 0; }
+    .delay-2 { animation-delay: 0.35s; opacity: 0; }
+    .delay-3 { animation-delay: 0.5s; opacity: 0; }
+
+    /* Animated checkmark */
+    .checkmark-circle { stroke-dasharray: 166; stroke-dashoffset: 166; animation: stroke 0.6s cubic-bezier(0.65,0,0.45,1) forwards; }
+    .checkmark-check { stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s cubic-bezier(0.65,0,0.45,1) 0.4s forwards; }
+    @keyframes stroke { 100% { stroke-dashoffset: 0; } }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="w-full bg-white border-b border-border">
+    <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-center">
+      <a href="/">
+        <img src="brand_assets/_PRIMARY LOGO BLUE.png" alt="Berry Swift Cleaning" class="h-14 md:h-16 object-contain" style="mix-blend-mode: multiply;" />
+      </a>
+    </div>
+  </header>
+
+  <!-- CONFIRMATION -->
+  <section class="bg-white min-h-[70vh] flex items-center justify-center py-16 md:py-24">
+    <div class="max-w-lg mx-auto px-5 text-center">
+
+      <!-- Animated checkmark -->
+      <div class="animate-scale mb-8">
+        <svg class="w-20 h-20 mx-auto" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" stroke="#00ca72" stroke-width="2" fill="none" />
+          <path class="checkmark-check" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke="#00ca72" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+      </div>
+
+      <!-- Badge -->
+      <div class="animate-fade delay-1 inline-flex items-center gap-2 bg-green-50 text-success font-heading text-sm font-semibold px-4 py-2 rounded-full mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        Booking Confirmed
+      </div>
+
+      <!-- Heading -->
+      <h1 class="animate-fade delay-2 font-heading text-3xl md:text-4xl font-bold leading-[1.15] tracking-[-0.03em] text-foreground mb-3">You're All Set!</h1>
+
+      <!-- Subtitle -->
+      <p class="animate-fade delay-3 font-body text-base md:text-lg text-muted max-w-md mx-auto mb-8" style="line-height:1.7;">We've got you covered. Our team will reach out before your cleaning day with any final details.</p>
+
+      <!-- Support note -->
+      <div class="animate-fade delay-3 bg-brand-light border border-brand/10 rounded-xl px-6 py-4 max-w-sm mx-auto">
+        <p class="font-body text-sm text-muted">Questions? Reach us at<br><a href="mailto:support@berryswiftcleaningco.com" class="text-brand font-semibold hover:underline">support@berryswiftcleaningco.com</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-foreground py-10">
+    <div class="max-w-6xl mx-auto px-5 text-center">
+      <img src="brand_assets/_PRIMARY LOGO BLUE.png" alt="Berry Swift Cleaning" class="h-10 object-contain mx-auto mb-4" style="filter: brightness(0) invert(1); opacity: 0.7;" />
+      <p class="font-body text-sm text-white/50">&copy; 2025 Berry Swift Cleaning Co. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
