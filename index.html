@@ -92,6 +92,13 @@
     /* Check/X icons */
     .icon-check { width: 22px; height: 22px; border-radius: 50%; background: #00ca72; display: inline-flex; align-items: center; justify-content: center; }
     .icon-x { width: 22px; height: 22px; border-radius: 50%; background: #ef6b6b; display: inline-flex; align-items: center; justify-content: center; }
+
+    /* Reset-to-routine mobile swipe */
+    .recur-track { scrollbar-width: none; -ms-overflow-style: none; }
+    .recur-track::-webkit-scrollbar { display: none; }
+    .recur-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 9999px; background: #d8dce4; cursor: pointer; transition: background-color 0.25s ease, width 0.25s ease; }
+    .recur-dot.active { width: 24px; background: #0033a1; }
+    .recur-dot:focus-visible { outline: 2px solid #0033a1; outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -196,8 +203,11 @@
       <h2 class="font-heading text-2xl md:text-3xl font-bold tracking-[-0.02em] text-foreground" data-animate="slide-up">Communities <span class="text-brand">We Serve</span></h2>
       <p class="font-body text-sm text-muted mt-2" data-animate="slide-up" data-delay="1">Building Strong Connections for Unmatched Cleaning Excellence</p>
     </div>
-    <div class="relative overflow-hidden">
-      <div class="carousel-track flex items-center gap-16 w-max px-8">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="relative overflow-hidden rounded-2xl border border-border bg-surface py-7" style="box-shadow: 0 4px 20px rgba(0,51,161,0.05);">
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 z-10 bg-gradient-to-r from-surface to-transparent"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 z-10 bg-gradient-to-l from-surface to-transparent"></div>
+        <div class="carousel-track flex items-center gap-16 w-max px-8">
         <img src="brand_assets/Hanover-Logo.jpg" alt="The Hanover Company" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
         <img src="brand_assets/hotel daphne logo.png" alt="Hotel Daphne" class="h-6 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
         <img src="brand_assets/the_dinerstein_companies.png.webp" alt="The Dinerstein Companies" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
@@ -208,17 +218,8 @@
         <img src="brand_assets/the_dinerstein_companies.png.webp" alt="The Dinerstein Companies" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
         <img src="brand_assets/Crescent_Communities.jpeg" alt="Crescent Communities" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
         <img src="brand_assets/greystar_Logo.jpg" alt="Greystar" class="h-8 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 3. OUR GUARANTEE -->
-  <section class="bg-white py-20 md:py-24">
-    <div class="max-w-3xl mx-auto px-5 text-center">
-      <p class="font-heading text-xs font-semibold text-brand uppercase tracking-widest mb-3" data-animate="slide-up">Our Guarantee</p>
-      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-[-0.02em] text-foreground mb-4" data-animate="slide-up" data-delay="1">Why Choose Berry Swift Cleaning</h2>
-      <p class="font-heading text-lg md:text-xl font-semibold text-foreground mb-4" data-animate="slide-up" data-delay="2">If it's not right, we make it right. Simple as that.</p>
-      <p class="font-body text-base text-muted max-w-2xl mx-auto" style="line-height:1.8;" data-animate="slide-up" data-delay="3">Your time is valuable and while we don't promise perfection, your home deserves to be cared for properly. If you're ever less than completely satisfied with your clean, simply let us know within 24 hours and we'll return to make it right — no hassle, no runaround.</p>
     </div>
   </section>
 
@@ -335,6 +336,145 @@
     </div>
   </section>
 
+  <!-- DEEP CLEAN — ANCHOR SECTION -->
+  <section id="deep-cleaning" class="bg-brand-light py-20 md:py-28 border-t border-border/40">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-5">
+        <p class="font-heading text-xs font-semibold text-brand uppercase tracking-widest mb-2" data-animate="slide-up">Deep Cleaning</p>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-[-0.02em] text-foreground" data-animate="slide-up" data-delay="1">When Your Home Needs <span class="text-brand">More Than Maintenance</span></h2>
+      </div>
+      <p class="font-body text-base text-muted text-center max-w-2xl mx-auto" style="line-height:1.8;" data-animate="slide-up" data-delay="2">Sometimes a basic tidy isn't enough. A deep clean goes beyond standard service to tackle built-up grime, overlooked corners, and the spots you've been meaning to get to — bringing your home back to baseline. It's where most of our clients start before settling into a recurring routine.</p>
+
+      <h3 class="font-heading text-xl md:text-2xl font-bold text-foreground text-center mt-16 mb-8" data-animate="slide-up">When to Book a Deep Clean</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Getting Back to Baseline -->
+        <div class="bg-white rounded-2xl p-6 card-hover" style="box-shadow: 0 4px 20px rgba(0,51,161,0.06);" data-animate="slide-up">
+          <div class="w-11 h-11 rounded-xl bg-brand-light flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+          </div>
+          <h4 class="font-heading text-base font-semibold text-foreground mb-1.5">Getting Back to Baseline</h4>
+          <p class="font-body text-sm text-muted" style="line-height:1.7;">When life gets busy and things have gotten away from you, we reset everything.</p>
+        </div>
+        <!-- Before Recurring Service -->
+        <div class="bg-white rounded-2xl p-6 card-hover" style="box-shadow: 0 4px 20px rgba(0,51,161,0.06);" data-animate="slide-up" data-delay="1">
+          <div class="w-11 h-11 rounded-xl bg-brand-light flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          </div>
+          <h4 class="font-heading text-base font-semibold text-foreground mb-1.5">Before Recurring Service</h4>
+          <p class="font-body text-sm text-muted" style="line-height:1.7;">Most recurring clients start here — then we maintain it with weekly or bi-weekly visits.</p>
+        </div>
+        <!-- Before Hosting -->
+        <div class="bg-white rounded-2xl p-6 card-hover" style="box-shadow: 0 4px 20px rgba(0,51,161,0.06);" data-animate="slide-up" data-delay="2">
+          <div class="w-11 h-11 rounded-xl bg-brand-light flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+          </div>
+          <h4 class="font-heading text-base font-semibold text-foreground mb-1.5">Before Hosting</h4>
+          <p class="font-body text-sm text-muted" style="line-height:1.7;">Prepare your home for guests, holidays, or a special occasion.</p>
+        </div>
+        <!-- Seasonal Cleaning -->
+        <div class="bg-white rounded-2xl p-6 card-hover" style="box-shadow: 0 4px 20px rgba(0,51,161,0.06);" data-animate="slide-up" data-delay="3">
+          <div class="w-11 h-11 rounded-xl bg-brand-light flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+          </div>
+          <h4 class="font-heading text-base font-semibold text-foreground mb-1.5">Seasonal Cleaning</h4>
+          <p class="font-body text-sm text-muted" style="line-height:1.7;">Clear out built-up grime between seasons and start fresh.</p>
+        </div>
+      </div>
+
+      <!-- Thorough, not rushed callout -->
+      <div class="mt-10 bg-white rounded-2xl p-7 md:p-9 flex flex-col md:flex-row md:items-center gap-6 md:gap-8" style="box-shadow: 0 6px 28px rgba(0,51,161,0.08);" data-animate="slide-up">
+        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(0,51,161,0.25);">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="flex-1">
+          <h4 class="font-heading text-lg font-bold text-foreground mb-1.5">Thorough, not rushed</h4>
+          <p class="font-body text-sm text-muted" style="line-height:1.7;">We allocate the time it takes to do it right — typically 4–6 hours depending on the size of your home. Every deep clean follows our complete room-by-room checklist, so nothing gets missed and your home is reset properly from the very start.</p>
+        </div>
+        <a href="https://link.cleanworks.co/widget/form/BhgJhf9TE38C2ZkSrKOt" class="btn-hover flex-shrink-0 inline-flex items-center justify-center gap-2 bg-brand text-white font-heading text-sm font-semibold px-6 py-3 rounded-xl hover:bg-brand-dark">Book Your Deep Clean <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEEP CLEAN vs RECURRING — THE JOURNEY -->
+  <section id="recurring" class="bg-white py-20 md:py-28 border-t border-border/40">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-5">
+        <p class="font-heading text-xs font-semibold text-brand uppercase tracking-widest mb-2" data-animate="slide-up">Your Cleaning Journey</p>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-[-0.02em] text-foreground" data-animate="slide-up" data-delay="1">From <span class="text-brand">Reset</span> to <span class="text-brand">Routine</span></h2>
+      </div>
+      <p class="font-body text-base text-muted text-center max-w-2xl mx-auto" style="line-height:1.8;" data-animate="slide-up" data-delay="2">Most clients start with a deep clean to reset the home from top to bottom — then move into a recurring service that keeps it that way. Here's how the two work together.</p>
+
+      <div id="recurTrack" class="recur-track flex items-stretch gap-5 lg:gap-3 mt-14 overflow-x-auto lg:overflow-visible snap-x snap-mandatory pt-4 pb-2 lg:py-0">
+        <!-- DEEP CLEAN CARD -->
+        <div class="recur-card flex-none w-[85%] sm:w-[58%] lg:w-auto lg:flex-1 snap-center bg-white border border-border rounded-2xl p-7 flex flex-col" style="box-shadow: 0 4px 20px rgba(0,51,161,0.06);">
+          <span class="inline-flex self-start items-center bg-brand-light text-brand font-heading text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide">Step 1 · One-Time</span>
+          <div class="flex items-center gap-3 mt-4 mb-3">
+            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-brand-light flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-heading text-xl font-bold text-foreground leading-tight">Deep Clean</h3>
+              <p class="font-heading text-[11px] font-semibold text-brand uppercase tracking-widest mt-0.5">The Reset</p>
+            </div>
+          </div>
+          <p class="font-body text-sm text-muted mb-4" style="line-height:1.7;">A thorough, top-to-bottom clean that brings your whole home back to baseline — the foundation everything else builds on.</p>
+          <ul class="space-y-2.5">
+            <li class="flex items-start gap-2 font-body text-sm text-foreground"><svg class="w-4 h-4 text-brand flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tackles built-up grime and overlooked areas</li>
+            <li class="flex items-start gap-2 font-body text-sm text-foreground"><svg class="w-4 h-4 text-brand flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Typically 4–6 hours, depending on home size</li>
+            <li class="flex items-start gap-2 font-body text-sm text-foreground"><svg class="w-4 h-4 text-brand flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>A one-time reset before recurring service begins</li>
+          </ul>
+        </div>
+
+        <!-- CONNECTOR (desktop only) -->
+        <div class="hidden lg:flex lg:flex-col items-center justify-center gap-2.5">
+          <span class="font-heading text-[10px] font-semibold text-muted uppercase tracking-[0.2em]">then</span>
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(0,51,161,0.25);">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </div>
+        </div>
+
+        <!-- RECURRING CARD -->
+        <div class="recur-card flex-none w-[85%] sm:w-[58%] lg:w-auto lg:flex-1 snap-center bg-brand-light border-2 border-brand rounded-2xl p-7 flex flex-col relative" style="box-shadow: 0 8px 28px rgba(0,51,161,0.10);">
+          <div class="absolute -top-3 right-6 bg-brand text-white font-heading text-[10px] font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Where you settle in</div>
+          <span class="inline-flex self-start items-center bg-white text-brand font-heading text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide">Step 2 · Ongoing</span>
+          <div class="flex items-center gap-3 mt-4 mb-3">
+            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-white flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+            </div>
+            <div>
+              <h3 class="font-heading text-xl font-bold text-foreground leading-tight">Recurring Service</h3>
+              <p class="font-heading text-[11px] font-semibold text-brand uppercase tracking-widest mt-0.5">The Routine</p>
+            </div>
+          </div>
+          <p class="font-body text-sm text-muted mb-4" style="line-height:1.7;">Weekly, bi-weekly, or monthly cleaning that keeps your home consistently fresh — without you ever having to think about it.</p>
+          <ul class="space-y-2.5 flex-1">
+            <li class="flex items-start gap-2 font-body text-sm text-foreground"><svg class="w-4 h-4 text-brand flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Same team, same day — they get to know your home</li>
+            <li class="flex items-start gap-2 font-body text-sm text-foreground"><svg class="w-4 h-4 text-brand flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>We remember your preferences — tell us once</li>
+            <li class="flex items-start gap-2 font-body text-sm text-foreground"><svg class="w-4 h-4 text-brand flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Appointments rebook automatically — no scheduling</li>
+            <li class="flex items-start gap-2 font-body text-sm text-foreground"><svg class="w-4 h-4 text-brand flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Adjust, skip, or pause anytime from your dashboard</li>
+          </ul>
+          <div class="flex flex-wrap items-center gap-2 mt-5 pt-5 border-t border-brand/15">
+            <span class="font-heading text-[10px] font-semibold text-muted uppercase tracking-wide mr-1">Choose your frequency:</span>
+            <span class="font-heading text-xs font-semibold bg-white text-foreground border border-brand/15 px-3 py-1 rounded-full">Weekly</span>
+            <span class="font-heading text-xs font-semibold bg-brand text-white px-3 py-1 rounded-full">Bi-Weekly · Most popular</span>
+            <span class="font-heading text-xs font-semibold bg-white text-foreground border border-brand/15 px-3 py-1 rounded-full">Monthly</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile swipe indicator -->
+      <div class="flex lg:hidden items-center justify-center gap-2.5 mt-6">
+        <button type="button" data-i="0" aria-label="View the Deep Clean step" class="recur-dot active"></button>
+        <button type="button" data-i="1" aria-label="View the Recurring Service step" class="recur-dot"></button>
+      </div>
+
+      <div class="text-center mt-12" data-animate="slide-up">
+        <p class="font-body text-base text-foreground max-w-2xl mx-auto mb-6" style="line-height:1.8;">Start with the reset. Settle into the routine. From there, we handle it — so a clean, cared-for home becomes one less thing on your plate.</p>
+        <a href="https://link.cleanworks.co/widget/form/BhgJhf9TE38C2ZkSrKOt" class="btn-hover inline-flex items-center gap-2 bg-brand text-white font-heading text-sm font-semibold px-7 py-3.5 rounded-xl hover:bg-brand-dark">Start With a Deep Clean <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
   <!-- 6. SERVICES -->
   <section id="services" class="bg-white py-20 md:py-28 border-t border-border/40">
     <div class="max-w-6xl mx-auto px-5">
@@ -375,7 +515,7 @@
           <a href="#whats-included" class="block text-center font-heading text-xs font-semibold text-brand mt-3 hover:text-brand-dark hover:underline" style="transition: color 0.2s ease;">Compare Packages</a>
         </div>
         <!-- Moving Clean -->
-        <div class="bg-white border-2 border-success rounded-2xl p-7 card-hover relative flex flex-col" data-animate="slide-up" data-delay="4">
+        <div class="bg-white border border-border rounded-2xl p-7 card-hover relative flex flex-col" data-animate="slide-up" data-delay="4">
           <div class="inline-flex items-center self-start bg-green-50 text-green-700 font-heading text-[10px] font-semibold px-2.5 py-1 rounded-full mb-4 uppercase tracking-wide">Great for an easy move</div>
           <p class="font-body text-xs text-muted uppercase tracking-wide mb-1">Move Cleaning</p>
           <h3 class="font-heading text-2xl font-bold text-foreground mb-3">Moving Clean</h3>
@@ -464,7 +604,7 @@
       <div class="checklist-tab active" id="panel-kitchen">
         <div class="grid grid-cols-4 gap-4 px-4 py-3 items-center bg-surface"><span class="font-body text-sm text-foreground">Wipe countertops</span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span></div>
         <div class="grid grid-cols-4 gap-4 px-4 py-3 items-center"><span class="font-body text-sm text-foreground">Clean stovetop</span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span></div>
-        <div class="grid grid-cols-4 gap-4 px-4 py-3 items-center bg-surface"><span class="font-body text-sm text-foreground">Clean microwave inside + out</span><span class="flex justify-center"><span class="icon-x"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span></div>
+        <div class="grid grid-cols-4 gap-4 px-4 py-3 items-center bg-surface"><span class="font-body text-sm text-foreground">Clean microwave inside + out</span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span></div>
         <div class="grid grid-cols-4 gap-4 px-4 py-3 items-center"><span class="font-body text-sm text-foreground">Wipe appliance exteriors</span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span></div>
         <div class="grid grid-cols-4 gap-4 px-4 py-3 items-center bg-surface"><span class="font-body text-sm text-foreground">Wipe cabinet fronts</span><span class="flex justify-center"><span class="icon-x"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span></div>
         <div class="grid grid-cols-4 gap-4 px-4 py-3 items-center"><span class="font-body text-sm text-foreground">Trash emptied + liner replaced</span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span><span class="flex justify-center"><span class="icon-check"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></span></div>
@@ -543,6 +683,16 @@
     </div>
   </section>
 
+  <!-- OUR GUARANTEE -->
+  <section class="bg-white py-20 md:py-24 border-t border-border/40">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <p class="font-heading text-xs font-semibold text-brand uppercase tracking-widest mb-3" data-animate="slide-up">Our Guarantee</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-[-0.02em] text-foreground mb-4" data-animate="slide-up" data-delay="1">Why Choose Berry Swift Cleaning</h2>
+      <p class="font-heading text-lg md:text-xl font-semibold text-foreground mb-4" data-animate="slide-up" data-delay="2">If it's not right, we make it right. Simple as that.</p>
+      <p class="font-body text-base text-muted max-w-2xl mx-auto" style="line-height:1.8;" data-animate="slide-up" data-delay="3">Your time is valuable and while we don't promise perfection, your home deserves to be cared for properly. If you're ever less than completely satisfied with your clean, simply let us know within 24 hours and we'll return to make it right — no hassle, no runaround.</p>
+    </div>
+  </section>
+
   <!-- 10. FAQ -->
   <section id="faq" class="bg-white py-20 md:py-28 border-t border-border/40">
     <div class="max-w-5xl mx-auto px-5">
@@ -589,6 +739,35 @@
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('[data-animate]').forEach(function(el){ observer.observe(el); });
+    })();
+
+    // Reset-to-routine mobile swipe dots
+    (function(){
+      var track = document.getElementById('recurTrack');
+      if(!track) return;
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.recur-dot'));
+      var cards = Array.prototype.slice.call(track.querySelectorAll('.recur-card'));
+      if(!dots.length || !cards.length) return;
+      function sync(){
+        var tr = track.getBoundingClientRect();
+        var center = tr.left + tr.width / 2;
+        var best = 0, bd = Infinity;
+        cards.forEach(function(c, i){
+          var r = c.getBoundingClientRect();
+          var d = Math.abs(r.left + r.width / 2 - center);
+          if(d < bd){ bd = d; best = i; }
+        });
+        dots.forEach(function(d, i){ d.classList.toggle('active', i === best); });
+      }
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      dots.forEach(function(d){
+        d.addEventListener('click', function(){
+          var i = parseInt(d.getAttribute('data-i'), 10) || 0;
+          if(cards[i]) cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+      });
+      sync();
     })();
   </script>
 
