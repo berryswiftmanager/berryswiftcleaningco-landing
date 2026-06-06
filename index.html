@@ -87,6 +87,7 @@
     .testimonial-scroll { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
     .testimonial-scroll::-webkit-scrollbar { display: none; }
     .testimonial-card { scroll-snap-align: start; flex-shrink: 0; width: calc(50% - 8px); }
+    @media (min-width: 1024px) { .testimonial-card { width: calc(33.333% - 11px); } }
     @media (max-width: 768px) { .testimonial-card { width: 100%; } }
 
     /* Check/X icons */
@@ -241,71 +242,14 @@
     </div>
   </section>
 
-  <!-- 2. COMMUNITIES CAROUSEL -->
-  <section class="bg-white py-12 md:py-16 overflow-hidden border-t border-border/50">
-    <div class="max-w-6xl mx-auto px-5 mb-8 text-center">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-[-0.02em] text-foreground" data-animate="slide-up">Communities <span class="text-brand">We Serve</span></h2>
-      <p class="font-body text-base text-muted mt-2" data-animate="slide-up" data-delay="1">Building Strong Connections for Unmatched Cleaning Excellence</p>
-    </div>
-    <div class="max-w-5xl mx-auto px-5">
-      <div class="relative overflow-hidden rounded-2xl border border-border bg-surface py-7" style="box-shadow: 0 4px 20px rgba(0,51,161,0.05);">
-        <div class="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 z-10 bg-gradient-to-r from-surface to-transparent"></div>
-        <div class="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 z-10 bg-gradient-to-l from-surface to-transparent"></div>
-        <div class="carousel-track flex items-center gap-16 w-max px-8">
-        <img src="brand_assets/Hanover-Logo.jpg" alt="The Hanover Company" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
-        <img src="brand_assets/hotel daphne logo.png" alt="Hotel Daphne" class="h-6 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
-        <img src="brand_assets/the_dinerstein_companies.png.webp" alt="The Dinerstein Companies" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
-        <img src="brand_assets/Crescent_Communities.jpeg" alt="Crescent Communities" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
-        <img src="brand_assets/greystar_Logo.jpg" alt="Greystar" class="h-8 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
-        <img src="brand_assets/Hanover-Logo.jpg" alt="The Hanover Company" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
-        <img src="brand_assets/hotel daphne logo.png" alt="Hotel Daphne" class="h-6 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
-        <img src="brand_assets/the_dinerstein_companies.png.webp" alt="The Dinerstein Companies" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
-        <img src="brand_assets/Crescent_Communities.jpeg" alt="Crescent Communities" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
-        <img src="brand_assets/greystar_Logo.jpg" alt="Greystar" class="h-8 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BERRY SWIFT CLEANER IMAGE -->
-  <section class="bg-white py-12 md:py-16">
-    <div class="max-w-4xl mx-auto px-5">
-      <div class="relative pb-6" data-animate="slide-up">
-        <div class="rounded-3xl overflow-hidden" style="box-shadow: 0 24px 50px -20px rgba(0,8,30,0.32), 0 8px 24px -12px rgba(0,51,161,0.14);">
-          <img src="brand_assets/Berry Swift Cleaner.jpeg" alt="Berry Swift cleaning professional" class="w-full h-auto object-cover" style="max-height: 520px; object-position: center top;" />
-        </div>
-        <div class="absolute -bottom-2 left-4 md:left-6 bg-white rounded-2xl p-3.5 flex items-center gap-3 z-10" style="box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-          <img src="brand_assets/Google__G__logo.svg.png" class="w-8 h-8" alt="Google" />
-          <div>
-            <div class="flex items-center gap-1 mb-0.5"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
-            <p class="font-heading text-sm font-bold text-foreground leading-tight">4.8 / 5 Rating</p>
-            <p class="font-body text-xs text-muted">1,000+ homes cleaned</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-8">
-      <a href="https://booking.berryswiftcleaningco.com/booknow" class="btn-hover inline-flex items-center gap-2 bg-brand text-white font-heading text-sm font-semibold px-6 py-3 rounded-xl hover:bg-brand-dark">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
-    </div>
-  </section>
-
-  <!-- 4. KITCHEN HERO PHOTO -->
-  <section class="bg-white px-5 pb-8 md:pb-12">
-    <div class="max-w-5xl mx-auto">
-      <div class="rounded-2xl overflow-hidden" style="box-shadow: 0 4px 24px rgba(0,0,0,0.06);" data-animate="slide-up">
-        <img src="brand_assets/Kitchen Hero.webp" alt="Freshly cleaned kitchen by Berry Swift" class="w-full h-auto object-cover" style="max-height: 480px; object-position: center;" />
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. TESTIMONIAL SCROLL (under kitchen hero) -->
-  <section class="bg-white py-12 md:py-16">
-    <div class="max-w-5xl mx-auto px-5">
-      <div class="text-center mb-8">
+  <!-- TESTIMONIAL SCROLL -->
+  <section class="bg-white py-12 md:py-16 overflow-hidden">
+    <div class="w-full">
+      <div class="text-center mb-8 px-5">
         <h3 class="font-heading text-xl md:text-2xl font-bold text-foreground" data-animate="slide-up">What our customers say</h3>
       </div>
       <!-- Scroll container with side arrows -->
-      <div class="relative flex items-center gap-3">
+      <div class="relative flex items-center gap-3 px-5 md:px-12 lg:px-20">
         <!-- Left arrow -->
         <button onclick="(function(){var s=document.getElementById('tscroll');var card=s.querySelector('.testimonial-card');if(card){s.scrollBy({left:-(card.offsetWidth+16),behavior:'smooth'})}})()" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-brand/30 bg-white flex items-center justify-center hover:bg-brand-light hover:border-brand" style="transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" aria-label="Previous">
           <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
@@ -399,6 +343,63 @@
           <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </button>
       </div><!-- end relative flex -->
+    </div>
+  </section>
+
+  <!-- BERRY SWIFT CLEANER IMAGE -->
+  <section class="bg-white py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-5">
+      <div class="relative pb-6" data-animate="slide-up">
+        <div class="rounded-3xl overflow-hidden" style="box-shadow: 0 24px 50px -20px rgba(0,8,30,0.32), 0 8px 24px -12px rgba(0,51,161,0.14);">
+          <img src="brand_assets/Berry Swift Cleaner.jpeg" alt="Berry Swift cleaning professional" class="w-full h-auto object-cover" style="max-height: 520px; object-position: center top;" />
+        </div>
+        <div class="absolute -bottom-2 left-4 md:left-6 bg-white rounded-2xl p-3.5 flex items-center gap-3 z-10" style="box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+          <img src="brand_assets/Google__G__logo.svg.png" class="w-8 h-8" alt="Google" />
+          <div>
+            <div class="flex items-center gap-1 mb-0.5"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+            <p class="font-heading text-sm font-bold text-foreground leading-tight">4.8 / 5 Rating</p>
+            <p class="font-body text-xs text-muted">1,000+ homes cleaned</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <a href="https://booking.berryswiftcleaningco.com/booknow" class="btn-hover inline-flex items-center gap-2 bg-brand text-white font-heading text-sm font-semibold px-6 py-3 rounded-xl hover:bg-brand-dark">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+    </div>
+  </section>
+
+  <!-- 2. COMMUNITIES CAROUSEL -->
+  <section class="bg-white py-12 md:py-16 overflow-hidden border-t border-border/50">
+    <div class="max-w-6xl mx-auto px-5 mb-8 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-[-0.02em] text-foreground" data-animate="slide-up">Communities <span class="text-brand">We Serve</span></h2>
+      <p class="font-body text-base text-muted mt-2" data-animate="slide-up" data-delay="1">Building Strong Connections for Unmatched Cleaning Excellence</p>
+    </div>
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="relative overflow-hidden rounded-2xl border border-border bg-surface py-7" style="box-shadow: 0 4px 20px rgba(0,51,161,0.05);">
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 z-10 bg-gradient-to-r from-surface to-transparent"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 z-10 bg-gradient-to-l from-surface to-transparent"></div>
+        <div class="carousel-track flex items-center gap-16 w-max px-8">
+        <img src="brand_assets/Hanover-Logo.jpg" alt="The Hanover Company" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
+        <img src="brand_assets/hotel daphne logo.png" alt="Hotel Daphne" class="h-6 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
+        <img src="brand_assets/the_dinerstein_companies.png.webp" alt="The Dinerstein Companies" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
+        <img src="brand_assets/Crescent_Communities.jpeg" alt="Crescent Communities" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
+        <img src="brand_assets/greystar_Logo.jpg" alt="Greystar" class="h-8 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
+        <img src="brand_assets/Hanover-Logo.jpg" alt="The Hanover Company" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
+        <img src="brand_assets/hotel daphne logo.png" alt="Hotel Daphne" class="h-6 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
+        <img src="brand_assets/the_dinerstein_companies.png.webp" alt="The Dinerstein Companies" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
+        <img src="brand_assets/Crescent_Communities.jpeg" alt="Crescent Communities" class="h-10 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 140px;" />
+        <img src="brand_assets/greystar_Logo.jpg" alt="Greystar" class="h-8 object-contain opacity-80 hover:opacity-100" style="transition: opacity 0.3s ease; max-width: 130px;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. KITCHEN HERO PHOTO -->
+  <section class="bg-white px-5 pb-8 md:pb-12">
+    <div class="max-w-5xl mx-auto">
+      <div class="rounded-2xl overflow-hidden" style="box-shadow: 0 4px 24px rgba(0,0,0,0.06);" data-animate="slide-up">
+        <img src="brand_assets/Kitchen Hero.webp" alt="Freshly cleaned kitchen by Berry Swift" class="w-full h-auto object-cover" style="max-height: 480px; object-position: center;" />
+      </div>
     </div>
   </section>
 
