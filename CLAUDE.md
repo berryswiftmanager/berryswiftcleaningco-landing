@@ -3,6 +3,13 @@
 ## Always Do First
 - **Invoke the `frontend-design` skill** before writing any frontend code, every session, no exceptions.
 
+## Brand Voice (Copywriting)
+Apply these to all customer-facing copy on the landing page:
+- **Speak directly to the reader as "you."** Never refer to the audience in the third person ("customers," "clients," "people," "homeowners," "most clients"). Exception: offer qualifiers like "new clients get a free deep clean upgrade" may use "new clients."
+- **Use "we" for the company** — warm, personal, first-person when talking to the reader.
+- **Avoid "but" wherever possible** without making the sentence awkward. Prefer additive phrasing. Example: "You'll love the basic clean and the deep clean" — not "You'll love the basic clean, but the deep clean more."
+- Prefer instructional/directive phrasing over describing what other people do (e.g., "Start with a deep clean, then move into recurring service" rather than "Most clients start with a deep clean").
+
 ## Reference Images
 - If a reference image is provided: match layout, spacing, typography, and color exactly. Swap in placeholder content (images via `https://placehold.co/`, generic copy). Do not improve or add to the design.
 - If no reference image: design from scratch with high craft (see guardrails below).
