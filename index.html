@@ -62,6 +62,11 @@
     .tab-btn:hover { color: #0033a1; }
     .tab-btn.active { background-color: #0033a1; color: #fff; box-shadow: 0 4px 12px rgba(0,51,161,0.22); }
     .tab-btn.active:hover { color: #fff; }
+    /* On mobile, make each tab read clearly as a tappable button */
+    @media (max-width: 640px) {
+      .tab-btn { background-color: #ffffff; border: 1px solid #d8dce4; box-shadow: 0 1px 5px rgba(0,8,30,0.08); color: #0f0f0f; }
+      .tab-btn.active { background-color: #0033a1; border-color: #0033a1; color: #fff; box-shadow: 0 4px 12px rgba(0,51,161,0.28); }
+    }
     .checklist-tab { display: none; }
     .checklist-tab.active { display: block; }
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -655,12 +660,13 @@
         <p class="font-body text-base text-muted max-w-2xl mx-auto mt-3" style="line-height:1.7;" data-animate="slide-up" data-delay="2">See exactly what's covered in every visit — and why the deep clean gives your home its strongest start.</p>
       </div>
       <!-- Tabs (segmented) -->
-      <div class="flex justify-center mb-8" data-animate="slide-up" data-delay="1">
-        <div class="inline-flex flex-wrap justify-center gap-1 bg-surface p-1 rounded-full border border-border">
+      <div class="flex flex-col items-center gap-2.5 mb-8" data-animate="slide-up" data-delay="1">
+        <div class="inline-flex flex-wrap justify-center gap-1.5 sm:gap-1 sm:bg-surface sm:p-1 sm:rounded-full sm:border sm:border-border">
           <button onclick="switchTab('kitchen')" class="tab-btn active px-4 sm:px-5 py-2 font-heading text-sm" id="tab-kitchen">Kitchen</button>
           <button onclick="switchTab('bathroom')" class="tab-btn px-4 sm:px-5 py-2 font-heading text-sm" id="tab-bathroom">Bathroom</button>
           <button onclick="switchTab('bedroom')" class="tab-btn px-4 sm:px-5 py-2 font-heading text-sm" id="tab-bedroom">Bedroom / Common Areas</button>
         </div>
+        <p class="sm:hidden flex items-center gap-1.5 font-body text-xs text-muted"><svg class="w-3.5 h-3.5 text-brand flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59"/></svg> Tap each room to view its checklist</p>
       </div>
       <!-- Comparison card -->
       <div class="rounded-2xl border border-border overflow-hidden bg-white" style="box-shadow: 0 18px 50px -16px rgba(0,51,161,0.14), 0 6px 16px -8px rgba(0,8,30,0.10);" data-animate="slide-up">
