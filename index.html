@@ -41,7 +41,9 @@
     --ease:cubic-bezier(.2,.7,.2,1);
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  /* the nav floats over the page, so anchored sections need to clear it */
+  html{scroll-behavior:smooth;scroll-padding-top:104px;-webkit-text-size-adjust:100%}
+  @media (max-width:980px){html{scroll-padding-top:94px}}
   body{margin:0;font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--white);overflow-x:hidden}
   img{max-width:100%;display:block}
   a{color:var(--berry);text-decoration:underline;text-underline-offset:3px;font-weight:600}
@@ -233,6 +235,7 @@
   .ugc-frame.playing .ugc-play{opacity:0;pointer-events:none}
   .ugc-credit{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:12px;font-size:14px;font-weight:600;color:var(--slate)}
   .ugc-credit svg{width:16px;height:16px;flex:none}
+  @media (max-width:760px){.ugc-credit{font-size:16px;gap:9px;margin-top:14px}.ugc-credit svg{width:19px;height:19px}}
   .ugc-dots{display:flex;justify-content:center;gap:9px;margin-top:16px}
   .ugc-dots[hidden]{display:none}
   .ugc-dots button{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:var(--powder);cursor:pointer;transition:background-color .2s var(--ease),transform .2s var(--ease)}
@@ -251,7 +254,7 @@
   .review.feature{border-color:var(--berry);border-width:2px;background:var(--sky)}
   .reviews-cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:28px}
   @media (max-width:980px){.reviews{columns:2}}
-  @media (max-width:640px){.reviews{columns:1}.review:nth-child(n+7){display:none}.wing.r{width:130vw;right:-70vw;top:-12vw}}
+  @media (max-width:640px){.reviews{columns:1}.reviews:not(.all) .review:nth-child(n+7){display:none}.wing.r{width:130vw;right:-70vw;top:-12vw}}
 
   /* ---------- How it works ---------- */
   .stepper{margin-top:8px}
@@ -339,7 +342,7 @@
   .faq[open] .ic{transform:rotate(45deg);background:var(--sky)}
   .faq .a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
   .faq .a p{padding:0 0 22px;font-size:16px;color:var(--ink);max-width:62ch}
-  @media (max-width:860px){.faq-grid{grid-template-columns:1fr}.faq-side{position:static}}
+  @media (max-width:860px){.faq-grid{grid-template-columns:1fr}.faq-side{position:static}.faq-side .btn{display:none}.faq-side p{margin-bottom:8px}}
 
   /* ---------- Closing band ---------- */
   .band{background:var(--deep);color:#fff;padding:clamp(64px,8vw,104px) 0;overflow:hidden}
@@ -506,7 +509,7 @@
     </div>
     <div class="reviews-cta reveal">
       <a class="btn btn-primary" href="https://booking.berryswiftcleaningco.com/booknow">Get my instant quote</a>
-      <a class="btn btn-outline" href="https://www.google.com/search?q=Berry+Swift+Cleaning+Houston+reviews" rel="noopener">Read all reviews on Google</a>
+      <button class="btn btn-outline" type="button" id="moreReviews">Read all reviews</button>
     </div>
   </div>
 </section>
@@ -780,6 +783,27 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
     document.addEventListener('click',function(e){if(!m.hidden&&!e.target.closest('.nav'))set(false)});
     addEventListener('resize',function(){if(innerWidth>980)set(false)});
+  })();
+
+  /* Reviews: the CTA never leaves the page. Where the list is collapsed it expands,
+     otherwise it returns to the top of the section. Count comes from the DOM so the
+     label can't go stale. */
+  (function(){
+    var wrap=document.querySelector('.reviews'), btn=document.getElementById('moreReviews');
+    if(!wrap||!btn) return;
+    var total=wrap.querySelectorAll('.review').length;
+    var hidden=function(){
+      return [].slice.call(wrap.querySelectorAll('.review'))
+        .some(function(c){return getComputedStyle(c).display==='none'});
+    };
+    var label=function(){btn.textContent = hidden() ? 'Read all '+total+' reviews' : 'Back to the top'};
+    btn.addEventListener('click',function(){
+      if(hidden()){ wrap.classList.add('all'); }
+      else { document.getElementById('neighbors').scrollIntoView({behavior:'smooth',block:'start'}); }
+      label();
+    });
+    label();
+    addEventListener('resize',function(){ if(!wrap.classList.contains('all')) label(); });
   })();
 </script>
 </body>
