@@ -269,6 +269,8 @@
   .arrows{display:flex;gap:8px}
   .arrow{width:44px;height:44px;border-radius:50%;border:2px solid var(--berry);background:#fff;color:var(--berry);display:grid;place-items:center;cursor:pointer;transition:background-color .18s var(--ease),color .18s var(--ease)}
   .arrow:hover{background:var(--berry);color:#fff}
+  .arrow[disabled]{border-color:var(--mist);color:var(--powder);cursor:default}
+  .arrow[disabled]:hover{background:#fff;color:var(--powder)}
   .arrow:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,51,161,.45)}
   .arrow svg{width:18px;height:18px}
   .track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:var(--r-card)}
@@ -290,7 +292,18 @@
   .svc h3{font-size:22px}
   .svc p{font-size:15px;color:var(--slate);flex:1}
   .svc .btn{margin-top:8px;font-size:15px;padding:13px 18px;white-space:normal;text-align:center}
-  @media (max-width:860px){.slide{grid-template-columns:1fr}.slide-body{padding:4px 6px 8px}.services{grid-template-columns:1fr}.step-nav .arrows{display:none}}
+  @media (max-width:860px){
+    .slide{grid-template-columns:1fr;flex:0 0 92%}
+    .slide-body{padding:4px 6px 8px}
+    .services{grid-template-columns:1fr}
+    /* the trailing gap lets the last card still snap flush left */
+    .track::after{content:'';flex:0 0 8%}
+    /* controls move under the card they drive; the text tabs give way to arrows */
+    .stepper{display:flex;flex-direction:column}
+    .track{order:1}
+    .step-nav{order:2;justify-content:center;margin:18px 0 0}
+    .step-tabs{display:none}
+  }
 
   /* ---------- Checklist ---------- */
   .tabs{display:flex;justify-content:center;gap:6px;margin-bottom:26px;flex-wrap:wrap}
@@ -315,7 +328,7 @@
   .no{color:var(--powder)}
   .spot{background:var(--sky);color:var(--powder)}
   .yes svg,.no svg,.spot svg{width:13px;height:13px}
-  .legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:16px 0 0;font-size:13px;color:var(--slate)}
+  .legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:0 0 14px;font-size:13px;color:var(--slate)}
   .legend .lg{display:inline-flex;align-items:center;gap:7px}
   .panel{display:none}.panel.active{display:table-row-group}
   .table col.task{width:46%}.table col.plan{width:18%}
@@ -325,7 +338,33 @@
   .addons ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;grid-column:2;grid-row:1/3}
   .addons li{font-size:14px;font-weight:500;color:var(--deep);background:#fff;border:1px solid var(--mist);border-radius:999px;padding:7px 13px}
   .checklist-cta{display:flex;justify-content:center;margin-top:36px}
-  @media (max-width:760px){.table{overflow-x:auto}.table table{min-width:560px}.addons{grid-template-columns:1fr;gap:12px;padding:20px}.addons ul{grid-column:1;grid-row:auto;gap:7px}.addons li{font-size:13px;padding:6px 11px}.addons h3{white-space:normal}}
+  @media (max-width:760px){
+    /* The table fits the phone instead of scrolling sideways, and the column
+       headings stick under the nav so a mark 18 rows down still has a label.
+       Sticky needs a visible overflow, so the corners are rounded cell by cell. */
+    .table{overflow:visible}
+    /* fixed layout so the three plan columns stay equal: auto layout sizes them
+       to their headings and leaves the highlighted Deep column visibly narrower */
+    .table table{min-width:0;table-layout:fixed}
+    .table col.task{width:auto}
+    .table col.plan{width:52px}
+    .table thead th{position:sticky;top:78px;z-index:2;padding:11px 4px;font-size:10.5px;letter-spacing:.02em}
+    .table thead th.rec{position:sticky}  /* the desktop rule sets relative, which would unstick this one column */
+    /* the sub-labels cost more sticky height than they are worth on a phone */
+    .table thead th::after,.table thead th.rec::after{display:none}
+    .table thead th:first-child{padding-left:12px;border-top-left-radius:var(--r-card)}
+    .table thead th:last-child{border-top-right-radius:var(--r-card)}
+    .table tbody td{padding:12px 4px;font-size:14px}
+    .table tbody td:first-child{padding-left:12px;padding-right:8px;line-height:1.35}
+    .yes,.no,.spot{width:20px;height:20px}
+    .panel tr:last-child td:first-child{border-bottom-left-radius:var(--r-card)}
+    .panel tr:last-child td:last-child{border-bottom-right-radius:var(--r-card)}
+    .legend{gap:8px 16px;font-size:12.5px}
+    .addons{grid-template-columns:1fr;gap:12px;padding:20px}
+    .addons ul{grid-column:1;grid-row:auto;gap:7px}
+    .addons li{font-size:13px;padding:6px 11px}
+    .addons h3{white-space:normal}
+  }
 
   /* ---------- FAQ ---------- */
   .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px);align-items:start}
@@ -480,15 +519,6 @@
         </div>
         <figcaption class="ugc-credit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/></svg>@lifewithtory_</figcaption>
       </figure>
-      <figure class="ugc-slide">
-        <div class="ugc-frame">
-          <video playsinline preload="metadata" poster="assets/ugc-suigeneristate-poster.jpg" aria-label="customer video review from @suigeneristate">
-            <source src="assets/ugc-suigeneristate.mp4" type="video/mp4">
-          </video>
-          <button class="ugc-play" type="button" aria-label="Play customer video review from @suigeneristate"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></i></button>
-        </div>
-        <figcaption class="ugc-credit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/></svg>@suigeneristate</figcaption>
-      </figure>
       </div>
       <div class="ugc-dots" id="ugcDots" hidden></div>
     </div>
@@ -530,8 +560,8 @@
           <button class="step-tab" role="tab" aria-selected="false" onclick="goStep(2)"><b>3</b>Recurring service</button>
         </div>
         <div class="arrows">
-          <button class="arrow" type="button" aria-label="Previous step" onclick="goStep(cur-1)"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
-          <button class="arrow" type="button" aria-label="Next step" onclick="goStep(cur+1)"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
+          <button class="arrow" type="button" aria-label="Previous step" disabled><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
+          <button class="arrow" type="button" aria-label="Next step"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
         </div>
       </div>
       <div class="track" id="track" tabindex="0" aria-live="polite">
@@ -600,6 +630,8 @@
       <button class="tab" role="tab" aria-selected="false" data-panel="rooms" onclick="switchTab(this)">Bedrooms &amp; common areas</button>
     </div>
 
+    <p class="legend reveal"><span class="lg"><span class="yes"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Included</span><span class="lg"><span class="spot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 010 16z" fill="currentColor" stroke="none"/></svg></span>Spot checked</span><span class="lg"><span class="no"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 12h12"/></svg></span>Not included</span></p>
+
     <div class="table reveal" data-d="1">
       <table>
         <colgroup><col class="task"><col class="plan"><col class="plan"><col class="plan"></colgroup>
@@ -609,8 +641,6 @@
         <tbody class="panel" id="panel-rooms"></tbody>
       </table>
     </div>
-
-    <p class="legend reveal"><span class="lg"><span class="yes"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Included</span><span class="lg"><span class="spot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 010 16z" fill="currentColor" stroke="none"/></svg></span>Spot checked</span><span class="lg"><span class="no"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 12h12"/></svg></span>Not included</span></p>
 
     <div class="addons reveal" data-d="2">
       <h3>Add-ons at booking</h3>
@@ -690,30 +720,41 @@
   const S='<span class="spot" title="Spot checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 010 16z" fill="currentColor" stroke="none"/></svg></span>';
   const mark=v=>v===1?Y:(v===2?S:N);
   const rows={
+    // Ordered as a cascade: in every clean -> spot checked on a basic clean ->
+    // deep and moving only -> moving only. The sort below enforces it, so a row
+    // added in the wrong place still lands in the right group.
     kitchen:[
       ['Countertops and backsplash wiped',1,1,1],['Sink, faucet and soap dish cleaned and dried',1,1,1],['Stovetop, burners and control panels',1,1,1],['Microwave inside and out',1,1,1],['Exterior of refrigerator, dishwasher and small appliances',1,1,1],['Table and chairs wiped',1,1,1],['Lights, ceiling fans and cobwebs dusted',1,1,1],['Window sills and ledges dusted',1,1,1],['Trash out, can wiped, liner replaced',1,1,1],['Floors swept and mopped',1,1,1],
-      ['Cabinet fronts and handles',0,1,1],['Oven hood vent',0,1,1],['Doors and door frames dusted',0,1,1],['Light switches and door knobs disinfected',0,1,1],['Baseboards dusted and wiped',2,1,1],
-      ['Inside refrigerator',0,0,1],['Inside oven',0,0,1],['Inside cabinets and drawers',0,0,1],['Pantry shelves and floor',0,0,1],['Blinds and shutters dusted and wiped',2,1,1]
+      ['Baseboards dusted and wiped',2,1,1],['Blinds and shutters dusted and wiped',2,1,1],
+      ['Cabinet fronts and handles',0,1,1],['Oven hood vent',0,1,1],['Doors and door frames dusted',0,1,1],['Light switches and door knobs disinfected',0,1,1],
+      ['Inside refrigerator',0,0,1],['Inside oven',0,0,1],['Inside cabinets and drawers',0,0,1],['Pantry shelves and floor',0,0,1]
     ],
     bath:[
       ['Countertops, sinks and fixtures',1,1,1],['Mirrors and glass buffed',1,1,1],['Toilet inside and out',1,1,1],['Tub, shower, door track and glass',1,1,1],['Tile grout scrubbed',1,1,1],['Cabinet fronts cleaned',1,1,1],['Light fixtures, shelves and cobwebs dusted',1,1,1],['Trash emptied',1,1,1],['Floors swept and mopped',1,1,1],
-      ['Doors and door frames dusted and wiped',0,1,1],['Blinds dusted and wiped',2,1,1],['Baseboards dusted and wiped',2,1,1],
+      ['Baseboards dusted and wiped',2,1,1],['Blinds dusted and wiped',2,1,1],
+      ['Doors and door frames dusted and wiped',0,1,1],
       ['Inside cabinets',0,0,1]
     ],
     rooms:[
       ['Ceiling fans, shelves and cobwebs dusted',1,1,1],['Furniture, lamps and shades dusted',1,1,1],['Mirrors buffed',1,1,1],['Window sills, frames and chair rails',1,1,1],['Beds made and sheets changed (clean sheets provided)',1,1,1],['Blankets folded, pillows arranged',1,1,1],['Light switches and door knobs',1,1,1],['Trash emptied',1,1,1],['Floors vacuumed and mopped',1,1,1],
-      ['Doors and door frames dusted and wiped',0,1,1],['Baseboards dusted and wiped',2,1,1],
-      ['Blinds dusted',2,1,1],['Closets cleaned',0,0,1],['Blinds wet-wiped',0,0,1]
+      ['Baseboards dusted and wiped',2,1,1],['Blinds dusted and wiped',2,1,1],
+      ['Doors and door frames dusted and wiped',0,1,1],
+      ['Closets cleaned',0,0,1]
     ]
   };
-  for(const k in rows){document.getElementById('panel-'+k).innerHTML=rows[k].map(r=>`<tr><td>${r[0]}</td><td>${mark(r[1])}</td><td>${mark(r[2])}</td><td>${mark(r[3])}</td></tr>`).join('');}
+  // 1 included, 2 spot checked, 0 not included -> rank rows most-inclusive first
+  const weight=v=>v===1?2:v===2?1:0, tier=r=>weight(r[1])*100+weight(r[2])*10+weight(r[3]);
+  for(const k in rows){const list=rows[k].map((r,i)=>({r,i})).sort((a,b)=>tier(b.r)-tier(a.r)||a.i-b.i).map(o=>o.r);document.getElementById('panel-'+k).innerHTML=list.map(r=>`<tr><td>${r[0]}</td><td>${mark(r[1])}</td><td>${mark(r[2])}</td><td>${mark(r[3])}</td></tr>`).join('');}
   function setPlan(i){document.querySelectorAll('.table .rec').forEach(c=>c.classList.remove('rec'));document.querySelectorAll('.table tr').forEach(r=>r.children[i]&&r.children[i].classList.add('rec'));}
   setPlan(2);
 
   // How it works: swipeable steps
   const track=document.getElementById('track'),slides=[...track.children],stabs=[...document.querySelectorAll('.step-tab')];let cur=0;
   function goStep(i){i=Math.max(0,Math.min(slides.length-1,i));track.scrollTo({left:slides[i].offsetLeft-slides[0].offsetLeft,behavior:'smooth'});}
-  function syncStep(){const i=Math.round(track.scrollLeft/(slides[1].offsetLeft-slides[0].offsetLeft));if(i!==cur){cur=i;stabs.forEach((t,j)=>{t.classList.toggle('active',j===i);t.setAttribute('aria-selected',j===i)});}}
+  const sarrows=[...document.querySelectorAll('.step-nav .arrow')];
+  sarrows[0].addEventListener('click',()=>goStep(cur-1));
+  sarrows[1].addEventListener('click',()=>goStep(cur+1));
+  function syncStep(){const i=Math.round(track.scrollLeft/(slides[1].offsetLeft-slides[0].offsetLeft));if(i!==cur){cur=i;stabs.forEach((t,j)=>{t.classList.toggle('active',j===i);t.setAttribute('aria-selected',j===i)});sarrows[0].disabled=i===0;sarrows[1].disabled=i===slides.length-1;}}
   track.addEventListener('scroll',syncStep,{passive:true});
   track.addEventListener('keydown',e=>{if(e.key==='ArrowRight')goStep(cur+1);if(e.key==='ArrowLeft')goStep(cur-1);});
   function switchTab(btn){document.querySelectorAll('.tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});btn.classList.add('active');btn.setAttribute('aria-selected','true');document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+btn.dataset.panel).classList.add('active');}
