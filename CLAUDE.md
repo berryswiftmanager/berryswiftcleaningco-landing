@@ -36,8 +36,8 @@ Apply these to all customer-facing copy on the landing page:
 
 ## Output Defaults
 - Single `index.html` file, all styles inline, unless user says otherwise
-- Tailwind CSS via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
-- Placeholder images: `https://placehold.co/WIDTHxHEIGHT`
+- Plain CSS with the brand tokens declared in `:root` — no Tailwind, no CSS framework, no CDN stylesheet. The only external assets are the Google Fonts for Montserrat and Figtree.
+- Real assets from `assets/` and `brand_assets/`. Use `https://placehold.co/WIDTHxHEIGHT` only in a throwaway comp, never in a page that ships.
 - Mobile-first responsive
 
 ## Brand Assets
