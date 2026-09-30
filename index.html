@@ -414,11 +414,12 @@
   .reveal[data-d="1"]{transition-delay:.1s}.reveal[data-d="2"]{transition-delay:.2s}.reveal[data-d="3"]{transition-delay:.3s}
   @media (prefers-reduced-motion:reduce){.reveal,.h-anim{opacity:1;transform:none;animation:none;transition:none}.hero-bg{animation:none;transform:none}}
 
-  /* the "#1" reads as a chip rather than running text. White on the Deep Berry
-     hero is the highest-contrast pairing we have (16.4); the numeral itself is
-     Berry Blue. Green stays reserved for the primary action. */
-  .h1-badge{display:inline-block;background:#fff;color:var(--berry);border-radius:12px;
-    padding:0 .18em .06em;margin-right:.06em;line-height:1.02;vertical-align:baseline}
+  /* the "#1" reads as an award seal. The gold is #FFC531, already live on this
+     page as the hero rating stars directly above it, so the badge speaks the
+     same "rating" language rather than introducing a fourth colour. Deep Berry
+     on it clears 10:1. Green stays reserved for the primary action. */
+  .h1-badge{display:inline-block;background:#FFC531;color:var(--deep);
+    padding:.04em .26em .08em;margin-right:.12em;line-height:1.02;border-radius:10px}
 </style>
 </head>
 <body>
