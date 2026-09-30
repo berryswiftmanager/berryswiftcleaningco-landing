@@ -413,6 +413,12 @@
   .reveal.visible{opacity:1;transform:none}
   .reveal[data-d="1"]{transition-delay:.1s}.reveal[data-d="2"]{transition-delay:.2s}.reveal[data-d="3"]{transition-delay:.3s}
   @media (prefers-reduced-motion:reduce){.reveal,.h-anim{opacity:1;transform:none;animation:none;transition:none}.hero-bg{animation:none;transform:none}}
+
+  /* the "#1" reads as a chip rather than running text. White on the Deep Berry
+     hero is the highest-contrast pairing we have (16.4); the numeral itself is
+     Berry Blue. Green stays reserved for the primary action. */
+  .h1-badge{display:inline-block;background:#fff;color:var(--berry);border-radius:12px;
+    padding:0 .18em .06em;margin-right:.06em;line-height:1.02;vertical-align:baseline}
 </style>
 </head>
 <body>
@@ -449,7 +455,7 @@
   <div class="wrap">
     <div class="hero-in">
       <div class="h-anim"><span class="pill pill-rating"><span class="g"><img src="assets/google-g.png" alt=""></span><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.8 stars</b> on Google</span></span></div>
-      <h1 class="h-anim">#1 Top-Rated Cleaning Company in Houston, TX</h1>
+      <h1 class="h-anim"><span class="h1-badge">#1</span> Top-Rated Cleaning Company in Houston, TX</h1>
       <p class="lede h-anim">Houston's <strong>top-rated recurring house cleaning service</strong>. Start with a deep clean, then keep your home consistently clean on autopilot.</p>
       <div class="hero-ctas h-anim">
         <a class="btn btn-primary" href="https://booking.berryswiftcleaningco.com/booknow">Get my instant quote <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
